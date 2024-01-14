@@ -1,0 +1,148 @@
+/* modal_styles.css */
+
+/* Styles for the modal content */
+#myModal .modal-content{
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    background-image:url(img.png) ;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* Add your styles for the content area */
+}
+#myModal label{
+    font-family: rockwell;
+    font-size: 17px;
+}
+
+#myModal .container{
+    margin: 80px auto;
+    width: 80%;
+}
+
+#myModal .container .content{
+    font-family: rockwell;
+    font-weight: 50;
+ }
+
+ #myModal .container .widget {
+    margin-bottom: 20px;
+ }
+/* Close button style */
+
+#myModal .container .widget span {
+    color: black;
+    font-size: 12px;
+ }
+
+ #myModal .container .widget button {
+    font-size: 16px;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: inline-block;
+    background: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 100%;
+    margin: 0;
+    outline: none;
+    margin-left: -1px; 
+    width: 40px;
+    height: 40px;
+    border: 3px solid #eee;
+    transform: scale(1);
+    transition: background 0.2s ease-in, 
+                color 0.2s ease-in,
+                border-color 0.2s ease-in, 
+                transform 0.2s cubic-bezier(0.5,2,0.5,0.75);
+ }
+ #myModal .container .widget button.detractor:focus {
+   background: #F44336;
+   color: white;
+   border-color: lighten(#F44336, 5%);
+   transform: scale(1.05);
+}
+
+#myModal .container .widget button.passive:focus {
+   background: #F57C00;
+   color: white;
+   border-color: lighten(#F57C00, 5%);
+   transform: scale(1.05);
+}
+
+#myModal .container .widget button.promoter:focus {
+   background: #4CAF50;
+   color: white;
+   border-color: lighten(#4CAF50, 5%);
+   transform: scale(1.05);
+}
+#myModal .container .widget button.detractor-hover {
+    background: #F44336;
+    color: white;
+    border-color: lighten(#F44336, 5%);
+    transform: scale(1.05);
+ }
+ 
+ #myModal .container .widget button.passive-hover {
+    background: #F57C00;
+    color: white;
+    border-color: lighten(#F57C00, 5%);
+    transform: scale(1.05);
+ }
+ 
+ #myModal .container .widget button.promoter-hover {
+    background: #4CAF50;
+    color: white;
+    border-color: lighten(#4CAF50, 5%);
+    transform: scale(1.05);
+ }
+ 
+ #myModal .container .widget-sm {
+    width: 315px;
+    background: #eee;
+    border: 2px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 30px;
+ }
+ 
+ #myModal .container .widget-sm .positive-text, .container .widget-sm .negative-text {
+    position: absolute;
+ }
+ 
+ #myModal .container .widget-sm .positive-text {
+    right: 20px;
+    bottom: 10px;
+    text-align: right;
+ }
+ 
+ #myModal .container .widget-sm .negative-text {
+    left: 20px;
+    bottom: 10px;
+    text-align: left;
+ }
+ 
+ #myModal .container .widget-sm button {
+    border: none;
+    margin-left: -3px;
+    width: 27px;
+    height: 27px;
+    font-size: 12px;
+    font-weight: normal;
+    transform: scale(1) !important;
+    border-radius: none;
+    text-align: center;
+    display: inline-block;
+ }
+ 
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

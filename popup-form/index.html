@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal_styles.css">
+    <title>Your Website</title>
+</head>
+<body>
+    <!-- Your website content goes here -->
+    <header>
+        <h1>Welcome to Our Test Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Homepage Content</h2>
+        <p>This is the homepage of our test website. Feel free to explore!</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Test Website. All rights reserved.</p>
+    </footer>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form action="submit_form.php" method="post" id="myForm" onsubmit="submitForm(event)">
+                <!-- Your custom form goes here -->
+                <div class="container">
+                    <div class="content">
+                        <h1 align="left">NPS Survey</h1>
+                    </div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="e.g., 1234567890">
+                <br>
+                <label for="visit-frequency">How often do you visit websites of this category?</label>
+                <div>
+                    <input type="radio" id="rarely" name="visit-frequency" value="rarely" required>
+                    <label for="rarely">Rarely</label>
+
+                    <input type="radio" id="sometimes" name="visit-frequency" value="sometimes" required>
+                    <label for="sometimes">Sometimes</label>
+
+                    <input type="radio" id="regularly" name="visit-frequency" value="regularly" required>
+                    <label for="regularly">Regularly</label>
+                <br>  
+                <label for="comments">Additional Comments:</label>
+                <br>
+                <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+                <br>  
+                <input type="hidden" id="hidden-nps-rating" name="nps-rating" value="">
+                <label for="nps-rating">On a scale of 0 to 10, how likely are you to recommend our website to a friend or colleague?</label>
+                <div class="widget">
+                    <span class="negative-text">Unlikely</span>
+                    <button type=button class="detractor" name="nps-rating" onclick="handleButtonClick(1)">1</button>
+                    <button type=button class="detractor" name="nps-rating" onclick="handleButtonClick(2)">2</button>
+                    <button type=button class="detractor" name="nps-rating" onclick="handleButtonClick(3)">3</button>
+                    <button type=button class="detractor" name="nps-rating" onclick="handleButtonClick(4)">4</button>
+                    <button type=button class="detractor" name="nps-rating" onclick="handleButtonClick(5)">5</button>
+                    <button type=button class="passive" name="nps-rating" onclick="handleButtonClick(6)">6</button>
+                    <button type=button class="passive" name="nps-rating" onclick="handleButtonClick(7)">7</button>
+                    <button type=button class="passive" name="nps-rating" onclick="handleButtonClick(8)">8</button>
+                    <button type=button class="promoter" name="nps-rating" onclick="handleButtonClick(9)">9</button>
+                    <button type=button class="promoter" name="nps-rating" onclick="handleButtonClick(10)">10</button>
+                    <span class="positive-text">Likely</span>
+                </div>
+                <br>
+                <input type="button" value="Submit" onclick="submitForm()">
+            </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script src="script2.js"></script>
+            <script>
+                function handleButtonClick(rating) {
+                document.getElementById('hidden-nps-rating').value = rating;
+                console.log('Selected NPS Rating: ' + rating); // Add this line to check the selected rating in the browser console
+                }
+            </script>
+            </form>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            // Get the form data
+            var formData = new FormData(document.getElementById("myForm"));
+    
+            // Make an AJAX request
+            fetch("submit_form.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Update the content of the modal or display a notification
+                document.getElementById("myModal").innerHTML = data;
+    
+                // Close the modal
+                closeModal();
+    
+                // Reset the form
+                document.getElementById("myForm").reset();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
